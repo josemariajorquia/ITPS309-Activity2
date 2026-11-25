@@ -1,0 +1,302 @@
+:root {
+  --navy: #001F43;
+  --navy-dark: #00142B;
+  --border: #BDBDBD;
+  --muted: #8E8E8E;
+  --text: #000;
+  --error: #B42318;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+
+  background: #fff;
+  color: var(--text);
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+
+.auth-page {
+  display: grid;
+  place-items: center;
+
+  min-height: 100vh;
+  padding: 24px 16px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 500px;
+  padding: 40px 48px 36px;
+
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 32px;
+
+  text-align: center;
+}
+
+.logo {
+  display: block;
+
+  width: min(100%, 380px);
+  height: auto;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-top: 36px;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.subtitle {
+  margin-top: 4px;
+
+  font-size: 21px;
+  font-weight: 500;
+}
+
+
+
+form {
+  display: grid;
+  gap: 14px;
+
+  margin-top: 24px;
+
+  text-align: left;
+}
+
+.input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  height: 54px;
+  padding: 0 18px;
+
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-wrap:focus-within {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(0, 31, 67, 0.12);
+}
+
+.input-wrap svg {
+  flex: none;
+
+  width: 24px;
+  height: 24px;
+
+  color: #000;
+}
+
+.input-wrap input {
+  flex: 1;
+  min-width: 0;
+
+  background: none;
+  border: 0;
+  outline: 0;
+
+  font-family: inherit;
+  font-size: 21px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.input-wrap input::placeholder {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.toggle-password {
+  padding: 4px 0 4px 8px;
+
+  background: none;
+  border: 0;
+
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+
+  cursor: pointer;
+}
+
+.toggle-password:hover {
+  color: var(--navy);
+  text-decoration: underline;
+}
+
+
+
+.field.has-error .input-wrap {
+  border-color: var(--error);
+}
+
+.error {
+  margin: 6px 6px 0;
+
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--error);
+}
+
+.error:empty {
+  display: none;
+}
+
+
+
+.btn-submit {
+  height: 54px;
+  margin-top: 4px;
+
+  background: var(--navy);
+  color: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+
+  font-family: inherit;
+  font-size: 24px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+.btn-submit:hover {
+  background: var(--navy-dark);
+  box-shadow: 0 6px 16px rgba(0, 31, 67, 0.25);
+}
+
+.btn-submit:active {
+  transform: scale(0.985);
+}
+
+.btn-submit:focus-visible {
+  outline: 3px solid rgba(0, 31, 67, 0.35);
+  outline-offset: 2px;
+}
+
+.form-status {
+  text-align: center;
+
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--navy);
+}
+
+.form-status:empty {
+  display: none;
+}
+
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  margin-top: 18px;
+
+  font-size: 20px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+
+  flex: 1;
+  height: 1px;
+
+  background: var(--border);
+}
+
+.switch {
+  margin-top: 16px;
+
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.switch a {
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.switch a:hover {
+  color: var(--navy);
+  text-decoration: underline;
+}
+
+
+
+@media (max-width: 768px) {
+  .auth-card {
+    max-width: 460px;
+    padding: 34px 36px 30px;
+  }
+}
+
+
+
+@media (max-width: 520px) {
+  .auth-page {
+    padding: 16px 12px;
+  }
+
+  .auth-card {
+    padding: 28px 20px 26px;
+
+    border-radius: 24px;
+  }
+
+  h1 {
+    margin-top: 26px;
+
+    font-size: 30px;
+  }
+
+  .subtitle,
+  .switch {
+    font-size: 19px;
+  }
+
+  .input-wrap {
+    gap: 10px;
+
+    height: 50px;
+    padding: 0 14px;
+  }
+
+  .input-wrap input {
+    font-size: 19px;
+  }
+
+  .btn-submit {
+    height: 50px;
+
+    font-size: 22px;
+  }
+}
